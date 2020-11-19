@@ -1,7 +1,7 @@
 package Db;
 
 import Data.DbConnectProperty;
-import Data.EntityUnwonted;
+import Data.EntityUnwanted;
 import Interfaces.ISaveDataRepository;
 
 
@@ -24,7 +24,7 @@ public class DataSaveRepositoryDb implements ISaveDataRepository {
     //endregion PrivateField
 
     @Override
-    public void AddUnwonted(List<EntityUnwonted> persons) throws SQLException {
+    public void AddUnwonted(List<EntityUnwanted> persons) throws SQLException {
         Connection con = _dbConnectProperty.GetConnection();
 
         try {
@@ -42,11 +42,11 @@ public class DataSaveRepositoryDb implements ISaveDataRepository {
         }
     }
 
-    private void AddUnwonted(List<EntityUnwonted> persons, Connection con) throws SQLException {
+    private void AddUnwonted(List<EntityUnwanted> persons, Connection con) throws SQLException {
         String query = _queryGenerator.GetQueryInsertLegal();
 
         try (PreparedStatement ps = con.prepareStatement(query)) {
-            for (EntityUnwonted p : persons) {
+            for (EntityUnwanted p : persons) {
 
                 int parameterIndex = 1;
                 ps.setString(parameterIndex++, p.AllName);

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class UnwontedLegal {
+public class UnwantedLegal {
 
-    public UnwontedLegal(String content) throws ParseException {
+    public UnwantedLegal(String content) throws ParseException {
         String[] filds = content.split(";");
         String[] nd = filds[1].split(" ");
 

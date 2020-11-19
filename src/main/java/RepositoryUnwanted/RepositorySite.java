@@ -2,7 +2,7 @@ package RepositoryUnwanted;
 
 import Interfaces.IHttpService;
 import Interfaces.IRepositoryUnwanted;
-import RepositoryUnwanted.Data.UnwontedResponse;
+import RepositoryUnwanted.Data.UnwantedResponse;
 
 public class RepositorySite implements IRepositoryUnwanted {
 
@@ -14,7 +14,7 @@ public class RepositorySite implements IRepositoryUnwanted {
 
 
     @Override
-    public UnwontedResponse GetResponse() throws Exception {
+    public UnwantedResponse GetResponse() throws Exception {
         return null;
     }
 }

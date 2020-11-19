@@ -1,8 +1,8 @@
 package RepositoryUnwanted;
 
 import Interfaces.IRepositoryUnwanted;
-import RepositoryUnwanted.Data.UnwontedLegal;
-import RepositoryUnwanted.Data.UnwontedResponse;
+import RepositoryUnwanted.Data.UnwantedLegal;
+import RepositoryUnwanted.Data.UnwantedResponse;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -20,17 +20,17 @@ public class RepositoryFile implements IRepositoryUnwanted {
     private final String _fileName;
 
     @Override
-    public UnwontedResponse GetResponse() throws Exception {
-        UnwontedResponse response = new UnwontedResponse();
+    public UnwantedResponse GetResponse() throws Exception {
+        UnwantedResponse response = new UnwantedResponse();
 
         String content = new String(Files.readAllBytes(Paths.get(_path + "/" + _fileName)));
 
         String[] rows = content.split("\r\n");
 
         for(String row : rows){
-            UnwontedLegal legal = new UnwontedLegal(row);
+            UnwantedLegal legal = new UnwantedLegal(row);
 
-            response.UnwontedLegals.add(legal);
+            response.unwantedLegals.add(legal);
         }
 
         return response;

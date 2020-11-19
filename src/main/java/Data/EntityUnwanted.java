@@ -1,27 +1,27 @@
 package Data;
 
-import RepositoryUnwanted.Data.UnwontedLegal;
+import RepositoryUnwanted.Data.UnwantedLegal;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class EntityUnwonted {
+public class EntityUnwanted {
     public static String SEPARATOR = ";";
 
-    public EntityUnwonted(RepositoryUnwanted.Data.UnwontedLegal legal){
+    public EntityUnwanted(UnwantedLegal legal){
         NumberDoc = legal.NumberDoc;
         DateDoc = legal.DateDoc;
 
         AllName = GetAllName(legal);
     }
 
-    public static List<EntityUnwonted> ConvertUnwantedLegal(List<UnwontedLegal> collection){
-        return collection.stream().map(EntityUnwonted::new).collect(Collectors.toList());
+    public static List<EntityUnwanted> ConvertUnwantedLegal(List<UnwantedLegal> collection){
+        return collection.stream().map(EntityUnwanted::new).collect(Collectors.toList());
     }
 
-    private String GetAllName(RepositoryUnwanted.Data.UnwontedLegal legal) {
+    private String GetAllName(UnwantedLegal legal) {
         List<String> names = new ArrayList<>();
 
         if(legal.Name!=null && !legal.Name.isEmpty()){

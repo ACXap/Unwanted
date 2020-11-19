@@ -1,7 +1,7 @@
-import Data.EntityUnwonted;
+import Data.EntityUnwanted;
 import Db.DataSaveRepositoryDb;
 import Interfaces.IRepositoryUnwanted;
-import RepositoryUnwanted.Data.UnwontedResponse;
+import RepositoryUnwanted.Data.UnwantedResponse;
 import RepositoryUnwanted.RepositoryFile;
 import Service.PropertyService;
 
@@ -10,16 +10,16 @@ import java.util.List;
 public class Program {
     public static void main(String[] args) throws Exception {
         PropertyService.Initialization();
-        EntityUnwonted.SEPARATOR = PropertyService.DbSeparator;
+        EntityUnwanted.SEPARATOR = PropertyService.DbSeparator;
 
 
         //RepositorySite rep = new RepositorySite(new HttpServiceApache(PropertyService.UrlService,PropertyService.InternetConnectProperty));
 
         IRepositoryUnwanted rep = new RepositoryFile(PropertyService.PathTempFile, "unwanted.csv");
 
-        UnwontedResponse response = rep.GetResponse();
+        UnwantedResponse response = rep.GetResponse();
 
-        List<EntityUnwonted> collection = EntityUnwonted.ConvertUnwantedLegal(response.UnwontedLegals);
+        List<EntityUnwanted> collection = EntityUnwanted.ConvertUnwantedLegal(response.unwantedLegals);
 
         DataSaveRepositoryDb db = new DataSaveRepositoryDb(PropertyService.DbConnectProperty);
         db.AddUnwonted(collection);

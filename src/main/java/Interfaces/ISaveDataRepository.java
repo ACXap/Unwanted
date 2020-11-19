@@ -1,11 +1,11 @@
 package Interfaces;
 
-import Data.EntityUnwonted;
+import Data.EntityUnwanted;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public interface ISaveDataRepository {
 
-    void AddUnwonted(List<EntityUnwonted> persons) throws SQLException;
+    void AddUnwonted(List<EntityUnwanted> persons) throws SQLException;
 }

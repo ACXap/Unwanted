@@ -1,9 +1,7 @@
 package Interfaces;
 
-import RepositoryUnwanted.Data.UnwontedResponse;
-
-import java.io.IOException;
+import RepositoryUnwanted.Data.UnwantedResponse;
 
 public interface IRepositoryUnwanted {
-    UnwontedResponse GetResponse() throws Exception;
+    UnwantedResponse GetResponse() throws Exception;
 }
