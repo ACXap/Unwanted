@@ -3,6 +3,8 @@ import Db.DataSaveRepositoryDb;
 import Interfaces.IRepositoryUnwanted;
 import RepositoryUnwanted.Data.UnwantedResponse;
 import RepositoryUnwanted.RepositoryFile;
+import RepositoryUnwanted.RepositorySite;
+import Service.HttpServiceApache;
 import Service.PropertyService;
 
 import java.util.List;
@@ -13,9 +15,9 @@ public class Program {
         EntityUnwanted.SEPARATOR = PropertyService.DbSeparator;
 
 
-        //RepositorySite rep = new RepositorySite(new HttpServiceApache(PropertyService.UrlService,PropertyService.InternetConnectProperty));
+        RepositorySite rep = new RepositorySite(new HttpServiceApache(PropertyService.UrlService,PropertyService.InternetConnectProperty));
 
-        IRepositoryUnwanted rep = new RepositoryFile(PropertyService.PathTempFile, "unwanted.csv");
+        //IRepositoryUnwanted rep = new RepositoryFile(PropertyService.PathTempFile, "unwanted.csv");
 
         UnwantedResponse response = rep.GetResponse();
 

@@ -4,6 +4,7 @@ import Data.InternetConnectProperty;
 import Interfaces.IHttpService;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
+import org.apache.http.HttpVersion;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -37,6 +38,7 @@ public class HttpServiceApache implements IHttpService {
 
     public String RequestGet(String requestQuery) {
         HttpGet request = new HttpGet(String.format("%s/%s", _url, requestQuery));
+        request.setProtocolVersion(HttpVersion.HTTP_1_1);
 
         try (CloseableHttpResponse response = _httpClient.execute(request)) {
 
@@ -48,5 +50,9 @@ public class HttpServiceApache implements IHttpService {
         } catch (Exception ex) {
             return "Ошибка получения данных от сервера API: " + ex.getLocalizedMessage();
         }
+    }
+
+    public String RequestGet() {
+       return RequestGet("");
     }
 }

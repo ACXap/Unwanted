@@ -15,6 +15,9 @@ public class RepositorySite implements IRepositoryUnwanted {
 
     @Override
     public UnwantedResponse GetResponse() throws Exception {
+
+        String result = _http.RequestGet();
+
         return null;
     }
 }
