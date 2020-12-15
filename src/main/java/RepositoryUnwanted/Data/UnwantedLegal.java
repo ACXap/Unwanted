@@ -1,15 +1,19 @@
 package RepositoryUnwanted.Data;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class UnwantedLegal {
+    private static final String SPLIT_FIELDS_CHAR = ";" ;
 
     public UnwantedLegal(String content) throws ParseException {
-        String[] filds = content.split(";");
+        String[] filds = content.split(SPLIT_FIELDS_CHAR);
         String[] nd = filds[1].split(" ");
 
         NumberDoc = nd[1];
@@ -32,5 +36,25 @@ public class UnwantedLegal {
 
     private String RemoveBadSymbol(String content){
        return content.replace(")", "").replace("\"", "").replace("«", "").replace("»", "").trim();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UnwantedLegal that = (UnwantedLegal) o;
+
+        boolean isEquals = Name.equals(that.Name) && NumberDoc.equals(that.NumberDoc) && DateDoc.equals(that.DateDoc);
+
+        if(isEquals){
+            isEquals = CollectionUtils.isEqualCollection(Names, that.Names);
+        }
+
+        return isEquals;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Name, Names, NumberDoc, DateDoc);
     }
 }

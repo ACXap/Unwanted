@@ -38,7 +38,7 @@ public class HttpServiceApache implements IHttpService {
 
     public String RequestGet(String requestQuery) {
         HttpGet request = new HttpGet(String.format("%s/%s", _url, requestQuery));
-        request.setProtocolVersion(HttpVersion.HTTP_1_1);
+        //request.setProtocolVersion(HttpVersion.HTTP_1_1);
 
         try (CloseableHttpResponse response = _httpClient.execute(request)) {
 

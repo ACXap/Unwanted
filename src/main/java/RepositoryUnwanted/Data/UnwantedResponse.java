@@ -5,5 +5,5 @@ import java.util.List;
 
 public class UnwantedResponse {
 
-    public List<UnwantedLegal> unwantedLegals = new ArrayList<>();
+    public List<UnwantedLegal> UnwantedLegals = new ArrayList<>();
 }

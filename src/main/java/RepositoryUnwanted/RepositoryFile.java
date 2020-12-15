@@ -30,7 +30,7 @@ public class RepositoryFile implements IRepositoryUnwanted {
         for(String row : rows){
             UnwantedLegal legal = new UnwantedLegal(row);
 
-            response.unwantedLegals.add(legal);
+            response.UnwantedLegals.add(legal);
         }
 
         return response;
