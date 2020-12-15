@@ -8,4 +8,6 @@ import java.util.List;
 public interface ISaveDataRepository {
 
     void AddUnwonted(List<EntityUnwanted> persons) throws SQLException;
+
+    void DeleteData() throws SQLException;
 }

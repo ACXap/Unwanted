@@ -16,23 +16,12 @@ public class Program {
         EntityUnwanted.SEPARATOR = PropertyService.DbSeparator;
 
         RepositorySite rep = new RepositorySite(PropertyService.UrlService);
-
-        IRepositoryUnwanted rep2 = new RepositoryFile(PropertyService.PathTempFile, "unwanted.csv");
-
         UnwantedResponse response = rep.GetResponse();
-        UnwantedResponse response2 = rep2.GetResponse();
-
-        for (int i = 0; i < response.UnwantedLegals.size(); i++) {
-            UnwantedLegal ul1 = response.UnwantedLegals.get(i);
-            UnwantedLegal ul2 = response2.UnwantedLegals.get(i);
-            System.out.println(ul1.equals(ul2));
-        }
-
 
         List<EntityUnwanted> collection = EntityUnwanted.ConvertUnwantedLegal(response.UnwantedLegals);
 
         DataSaveRepositoryDb db = new DataSaveRepositoryDb(PropertyService.DbConnectProperty);
+        db.DeleteData();
         db.AddUnwonted(collection);
-
     }
 }

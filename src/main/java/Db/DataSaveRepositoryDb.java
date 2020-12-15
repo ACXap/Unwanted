@@ -42,6 +42,29 @@ public class DataSaveRepositoryDb implements ISaveDataRepository {
         }
     }
 
+    @Override
+    public void DeleteData() throws SQLException {
+        Connection con = _dbConnectProperty.GetConnection();
+
+        try {
+            con.setAutoCommit(false);
+
+            String query = _queryGenerator.GetQueryDeleteData();
+
+            try (PreparedStatement ps = con.prepareStatement(query)) {
+                ps.execute();
+            }
+
+            con.commit();
+        } catch (SQLException sex) {
+            con.rollback();
+            con.close();
+            throw sex;
+        } finally {
+            con.close();
+        }
+    }
+
     private void AddUnwonted(List<EntityUnwanted> persons, Connection con) throws SQLException {
         String query = _queryGenerator.GetQueryInsertLegal();
 
