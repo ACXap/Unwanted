@@ -18,7 +18,6 @@ public class PropertyService {
 
     //region PublicProperty
 
-    //public static String ApiKey;
     public static String UrlService;
     public static String DbSeparator;
     public static DbConnectProperty DbConnectProperty;
@@ -37,7 +36,6 @@ public class PropertyService {
             props.load(sr);
         }
 
-        //ApiKey = props.getProperty("ApiKey");
         UrlService = props.getProperty("UrlService");
         DbSeparator = props.getProperty("DbSeparator");
         DbConnectProperty = new DbConnectProperty(props.getProperty("DbType"),
